@@ -3,7 +3,7 @@ import json
 from collections import defaultdict
 
 # あなたのBearer Tokenをここに貼ってね（" " の中に！）
-BEARER_TOKEN = "AAAAAAAAAAAAAAAAAAAAAMsr3AEAAAAAiVLeQ8AmNrXsD%2BvypcRo4OAIQOk%3DRD5IdNblJJb4A7XBYodpqTygNpbAMzvQNvHOLDqTJW5jWnpnHD"
+BEARER_TOKEN = "BEARER_TOKEN"
 
 def create_headers():
     return {
