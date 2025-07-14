@@ -31,7 +31,7 @@ def get_tweet_by_id(tweet_id, cache):
     params = {"tweet.fields": "text"}
     response = requests.get(url, headers=create_headers(), params=params)
 
-    # ↓↓↓ この3行を追加してください（デバッグ用）
+    # デバッグ用
     print("元ツイ取得中:", tweet_id)
     print("ステータスコード:", response.status_code)
     print("レスポンス内容:", response.text)
@@ -85,6 +85,9 @@ def search_recent_replies(username, max_pages=5):
                 "reply_user": tweet["author_id"],
                 "reply_id": tweet["id"]
             })
+            
+            message = f"新しいリプがあるよん：\n{tweet['text']}\nhttps://x.com/i/web/status/{tweet['id']}"
+            send_discord_message(message)
 
         next_token = response.json().get("meta", {}).get("next_token")
         if not next_token:
