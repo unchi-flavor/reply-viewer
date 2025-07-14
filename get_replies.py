@@ -10,6 +10,19 @@ def create_headers():
         "Authorization": f"Bearer {BEARER_TOKEN}"
     }
 
+# ここにWebhookのURLを貼ってね（Discordで取得したやつ）
+WEBHOOK_URL = "https://discord.com/api/webhooks/1394287381909078187/hwY1mL89rhtqxcKATOQWcLP9Xd6mrMhWfZmm13lgArvrtcUFNvDeCKVBiKLYwO7EypbO"
+
+def send_discord_message(content):
+    data = {
+        "content": content
+    }
+    response = requests.post(WEBHOOK_URL, json=data)
+    if response.status_code == 204:
+        print("✅ 通知を送信しました")
+    else:
+        print("❌ 通知に失敗しました:", response.status_code, response.text)
+
 def get_tweet_by_id(tweet_id, cache):
     if tweet_id in cache:
         return cache[tweet_id]
