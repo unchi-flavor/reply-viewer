@@ -1,9 +1,10 @@
+import os
 import requests
 import json
 from collections import defaultdict
 
 # あなたのBearer Tokenをここに貼ってね（" " の中に！）
-BEARER_TOKEN = "BEARER_TOKEN"
+BEARER_TOKEN = os.environ.get("BEARER_TOKEN")
 
 def create_headers():
     return {
