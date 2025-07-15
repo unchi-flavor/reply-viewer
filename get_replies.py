@@ -8,7 +8,7 @@ BEARER_TOKEN = os.environ.get("BEARER_TOKEN")
 
 def create_headers():
     return {
-        "Authorization": f"Bearer {BEARER_TOKEN}"
+        "Authorization": f"Bearer {os.environ['BEARER_TOKEN']}"
     }
 
 # ここにWebhookのURLを貼ってね（Discordで取得したやつ）
