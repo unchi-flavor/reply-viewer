@@ -5,10 +5,12 @@ from collections import defaultdict
 
 # あなたのBearer Tokenをここに貼ってね（" " の中に！）
 BEARER_TOKEN = os.environ.get("BEARER_TOKEN")
+if not BEARER_TOKEN:
+    raise ValueError("❌ BEARER_TOKEN が環境変数に設定されていません")
 
 def create_headers():
     return {
-        "Authorization": f"Bearer {os.environ['BEARER_TOKEN']}"
+        "Authorization": f"Bearer {BEARER_TOKEN}"
     }
 
 # ここにWebhookのURLを貼ってね（Discordで取得したやつ）
