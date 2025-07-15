@@ -23,6 +23,8 @@ jobs:
 
       - name: Run get_replies.py
         run: python get_replies.py
+        env:
+          BEARER_TOKEN: ${{ secrets.BEARER_TOKEN }}
 
       - name: Commit and push replies_grouped.json
         run: |
